@@ -1,10 +1,3 @@
-=begin
-    The ruby array sort method can use a block to sort various arrays.  The block
-must compare between two elements of the array, a and b.  If a<b, it should evaluate to
--1.  If a==b, it should evaluate to 0.  And if a>b, it should evaluate to 1. Here is the
-start of a program, which you should call sort_blocks.rb.
-
-```ruby
 class Book
   attr_reader :author, :title, :count
   def initialize(author,title,count)
@@ -37,15 +30,21 @@ new_array = book_array.sort do |a,b|
   # end
 end
 puts new_array
-```
 
-Note the use of the spaceship operator <=>.  It does what the commented out
-lines do, but on one line.
+puts "Sorting alphabetically by title"
 
-Add to this program. Add additional calls to book_array.sort that pass blocks.  For your first
-call to sort, pass a block so that the array is sorted in order of title,
-and print out the array.  For your second call to sort, pass a block so that
-the array is sorted in order of copies, and print out the array.
+new_array_2 = book_array.sort do |a,b|
+  book1 = a.title.downcase
+  book2 = b.title.downcase
+  book1 <=> book2
+end
+puts new_array_2
 
-    
-=end
+puts "Sorting by amount of copies"
+new_array_3 = book_array.sort do |a,b|
+  copies1 = a.count
+  copies2 = b.count
+  copies1 <=> copies2
+end
+puts new_array_3
+#puts new_array_3.reverse #most copies to least copies

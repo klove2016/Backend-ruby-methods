@@ -1,4 +1,20 @@
-#(2) Write a program hangman.rb that contains a function called hangman.  The function's parameters are a word and an array of letters.  It returns a string showing the letters that have been guessed.  Call the function from within your program so that you know that it works.
 
-#Example: hangman("bob",["b"]) should evaluate to "b_b"
-#Example: hangman("alphabet",["a","h"]) should return "a__ha___"
+def hangman(word, guess)
+  wordlen = word.length
+  guessed_right = []
+  wordlen.times {guessed_right.push('_')}   
+
+  for x in 0.. guess.length
+    word.each_char.with_index {|char, index|
+      if char == guess[x]
+        guessed_right[index].replace(char)
+      end
+    }
+  end
+       
+  puts guessed_right.join('')
+
+end
+
+hangman("bob",["b"]) 
+hangman("alphabet",["a","h"]) 

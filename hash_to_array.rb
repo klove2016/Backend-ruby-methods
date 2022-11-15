@@ -1,1 +1,16 @@
-#(3) Write a program that collects 5 keys and 5 values from the user, and stores them in a hash.  Write a function that accepts the hash as optional parameters and prints out an array of keys and an array of values.  Call the function within your program so you know it works. (Question: Can you find online information on Ruby hash methods that will help with this function?)  Call this program hash_to_array.rb.
+
+ user_hash = Hash.new
+while user_hash.length < 5
+    puts "What key would you like to enter?"
+    user_key = gets.chomp
+    puts "What value would you like to enter?"
+    user_value = gets.chomp
+    user_hash[user_key] = user_value
+end
+
+def hash_sorter(options={})
+    options.each_key { |key| print key, " " }
+    puts
+    options.each_value{|value| print value," "}
+end
+ hash_sorter(user_hash)
