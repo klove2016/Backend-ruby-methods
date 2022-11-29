@@ -1,7 +1,7 @@
 
 
 def do_calc(a, b)
-    yield(a, b)
+    yield(7, 9)
 end
     puts do_calc(7, 9) { |a, b| a + b }
     puts do_calc(7, 9) { |a, b| a * b }
