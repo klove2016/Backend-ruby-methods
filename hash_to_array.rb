@@ -8,7 +8,7 @@ while user_hash.length < 5
     user_hash[user_key] = user_value
 end
 
-def hash_sorter(options={})
+def print_hash_keys_then_values(options={})
     options.each_key { |key| print key, " " }
     puts
     options.each_value{|value| print value," "}
