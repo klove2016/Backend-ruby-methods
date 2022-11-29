@@ -4,7 +4,7 @@ def hangman(word, guess)
   guessed_right = []
   wordlen.times {guessed_right.push('_')}   
 
-  for x in 0.. guess.length
+  for x in 0 ... guess.length
     word.each_char.with_index {|char, index|
       if char == guess[x]
         guessed_right[index].replace(char)
